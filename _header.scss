@@ -1,0 +1,75 @@
+.header {
+    background-color: $color-grey-dark-1;
+    grid-column: full-start / col-end 6;
+    background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg); // this allows to set the color of the image like a filter but the image is still visable.
+    background-size: cover; // because of thaht the image covers the whole area
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+
+    display: grid;
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr; // minmax and min-contnent is for website responsilibity.
+    grid-template-columns: minmax(min-content, max-content); // max width possible, the min-content is at the end for website responsibility.
+    grid-row-gap: 1.5rem;
+    justify-content: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
+
+    &_logo {
+        height: 3rem;
+        justify-self: center; // because of that logo is centered and thats the only option for doing that
+    
+
+    }
+
+    &_btn {
+        align-self: start;
+        justify-self: start;
+    }
+
+    &_seenon-text {
+        filter: brightness(50%);
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-column-gap: 1.5rem;
+        align-items: center;
+
+        font-size: 1.6rem;
+        color: $color-grey-light-1;
+
+
+        &::before,
+        &::after {
+            content: ""; // without content property its not going to work
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+
+    }
+
+    &_seenon-logos {
+        filter: brightness(50%); // to make image darker
+        display:grid;
+        grid-template-columns: repeat(4, 1fr); 
+        grid-column-gap: 4rem;
+        justify-items: center; // it justify items to the center in their grid cells
+        transition: all .3s;
+
+        &:hover {
+            filter: brightness(100%);
+        }
+
+
+        img {
+            max-height: 2.5rem;
+            max-width: 100%;
+
+        }
+    }
+}

@@ -1,0 +1,77 @@
+.story {
+    &_pictures {
+        background-color: $color-grey-light-1;
+        grid-column: full-start / col-end 4;
+        background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), url(../img/back.jpg); // it changes th
+        //color of the image
+        background-size: cover;
+
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1; // to make it side by side
+            padding: 6rem;
+        }
+    }
+
+    &_img--1 {
+        width: 100%; // width of images always in % so they stay flexible
+        grid-row: 2/6;
+        grid-column: 2/6;
+        box-shadow: 0 2rem 4rem rgba(black, 0.2);
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / 5;
+            grid-row: 1 / -1;      
+            
+            
+        }
+
+    }
+
+    &_img--2 {
+        width: 115%; // because of that image is bigger than it suppose to be and its out of its grid
+        grid-row: 4/6;
+        grid-column: 4/7;
+        box-shadow: 0 2rem 4rem rgba(black, 0.2);
+        z-index: 20; // beacause of z-index its visable on the content side
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 100%;
+            grid-row: 1 / -1;        
+        }
+    }
+
+    &_content {
+        background-color: $color-grey-light-1;
+        grid-column: col-start 5 / full-end;
+
+        padding: 5rem 8vw; // 8 vw is for website responsivity
+
+
+        display: flex; //here it looks a little bit weird
+        flex-direction: column; // but here is just normal
+        justify-content: center; // now its perfectly fit into web width
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1; // to make it side by side
+            grid-row: 5 / 6;
+            
+        }
+        
+
+        //or CSS grid
+
+        //display: grid;
+        //align-content: center;
+        //justify-items: start;
+    }
+
+    &_text {
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+}
